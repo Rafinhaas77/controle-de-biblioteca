@@ -1,0 +1,27 @@
+CREATE TABLE author (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE book (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    idauthor INT NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idauthor) REFERENCES author(id)
+);
+
+INSERT INTO author (name) VALUES
+('J.K. Rowling'),
+('George Orwell'),
+('F. Scott Fitzgerald'),
+('Harper Lee');
+
+INSERT INTO book (name, date, idauthor, status) VALUES
+('Harry Potter and the Sorcerer\'s Stone', '1997-06-26', 1, 'Published'),
+('1984', '1949-06-08', 2, 'Published'),
+('The Great Gatsby', '1925-04-10', 3, 'Published'),
+('To Kill a Mockingbird', '1960-07-11', 4, 'Published');
